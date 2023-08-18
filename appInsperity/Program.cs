@@ -1,16 +1,59 @@
-﻿namespace appInsperity
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace appInsperity
 {
     public class Program
     {
         private static void Main()
         {
-            List<string> stringInputs = new() { "abaccadcc" };
+            string answer = "S";
 
-            foreach (string input in PerfomOperations(stringInputs))
+            while (answer.ToUpper().Equals("S"))
             {
-                Console.WriteLine(SortingOperations(input));
+                answer = UserInteraction();
             }
-            Console.Write("Done!");
+        }
+
+        private static string  UserInteraction ()
+        {
+            int number;
+            List<string> stringInputsByUser = new();
+            string answer = string.Empty;
+
+            Console.WriteLine("---- Code Challenge ----");
+
+            while (true)
+            {
+                Console.Write("Please enter a number: ");
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out number))
+                    break;
+                else
+                    Console.Write("Invalid input. Please enter a valid number.");
+            }
+
+            for (int i = 0; i < number; i++)
+            {
+                Console.Write($"Enter Input String N° {i + 1} : ");
+                stringInputsByUser.Add(Console.ReadLine());
+            }
+
+            Console.WriteLine("---- PerfomOperations ----");
+
+            for (int i = 0; i < number; i++)
+            {
+                //Console.Write(SortingOperations(stringInputsByUser[i]));
+                Console.WriteLine($"N° {i + 1} : Input : {stringInputsByUser[i].PadRight(20)} - Output : {SortingOperations(stringInputsByUser[i]).PadRight(20)}");
+            }
+
+            Console.WriteLine("------------------------");
+            Console.WriteLine("------------------------");
+            Console.Write("Press S to perform another Action or Press Any Other Key to Exit : ");
+            answer = Console.ReadLine();
+
+            return answer;
+
         }
 
         public static List<string> PerfomOperations(List<string> stringInputs)
