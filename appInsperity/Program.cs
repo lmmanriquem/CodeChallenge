@@ -14,11 +14,11 @@ namespace appInsperity
             }
         }
 
-        private static string  UserInteraction ()
+        private static string UserInteraction()
         {
             int number;
             List<string?> stringInputsByUser = new();
-            string? answer = string.Empty;
+            
 
             Console.WriteLine("---- Code Challenge ----");
 
@@ -43,15 +43,15 @@ namespace appInsperity
 
             for (int i = 0; i < number; i++)
             {
-                Console.WriteLine($"N° {i + 1} : Input : {stringInputsByUser[i]?.PadRight(20)} - Output : {SortingOperations(stringInputsByUser[i]).PadRight(20)}");
+                Console.WriteLine($"N° {i + 1} : Input : {stringInputsByUser[i]?.PadRight(20)} - Output : {SortingOperations(stringInputsByUser[i]),-20}");
             }
 
             Console.WriteLine("------------------------");
             Console.WriteLine("------------------------");
             Console.Write("Press S to perform another Action or Press Any Other Key to Exit : ");
-            answer = Console.ReadLine();
+            string? answer = Console.ReadLine();
 
-            return  answer ?? "";
+            return answer ?? string.Empty;
 
         }
 
