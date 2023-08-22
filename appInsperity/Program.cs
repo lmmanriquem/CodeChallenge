@@ -43,7 +43,6 @@ namespace appInsperity
 
             for (int i = 0; i < number; i++)
             {
-                //Console.Write(SortingOperations(stringInputsByUser[i]));
                 Console.WriteLine($"N° {i + 1} : Input : {stringInputsByUser[i].PadRight(20)} - Output : {SortingOperations(stringInputsByUser[i]).PadRight(20)}");
             }
 
@@ -52,7 +51,7 @@ namespace appInsperity
             Console.Write("Press S to perform another Action or Press Any Other Key to Exit : ");
             answer = Console.ReadLine();
 
-            return answer;
+            return  answer ?? "";
 
         }
 
