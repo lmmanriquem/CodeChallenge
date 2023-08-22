@@ -6,7 +6,7 @@ namespace appInsperity
     {
         private static void Main()
         {
-            string answer = "S";
+            string? answer = "S";
 
             while (answer.ToUpper().Equals("S"))
             {
@@ -17,15 +17,15 @@ namespace appInsperity
         private static string  UserInteraction ()
         {
             int number;
-            List<string> stringInputsByUser = new();
-            string answer = string.Empty;
+            List<string?> stringInputsByUser = new();
+            string? answer = string.Empty;
 
             Console.WriteLine("---- Code Challenge ----");
 
             while (true)
             {
                 Console.Write("Please enter a number: ");
-                string input = Console.ReadLine();
+                string? input = Console.ReadLine();
 
                 if (int.TryParse(input, out number))
                     break;
@@ -43,7 +43,7 @@ namespace appInsperity
 
             for (int i = 0; i < number; i++)
             {
-                Console.WriteLine($"N° {i + 1} : Input : {stringInputsByUser[i].PadRight(20)} - Output : {SortingOperations(stringInputsByUser[i]).PadRight(20)}");
+                Console.WriteLine($"N° {i + 1} : Input : {stringInputsByUser[i]?.PadRight(20)} - Output : {SortingOperations(stringInputsByUser[i]).PadRight(20)}");
             }
 
             Console.WriteLine("------------------------");
@@ -65,12 +65,12 @@ namespace appInsperity
             return stringOutputs;
         }
 
-        public static string SortingOperations(string inputString)
+        public static string SortingOperations(string? inputString)
         {
             string outputString = string.Empty;
             Dictionary<char, int> frequencyDictionary = new();
 
-            for (int i = 0; i < inputString.Length; i++)
+            for (int i = 0; i < inputString?.Length; i++)
             {
                 if (frequencyDictionary.ContainsKey(inputString[i]))
                 {
